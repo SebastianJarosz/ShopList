@@ -45,7 +45,7 @@ namespace ShopList.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex.ToString();
             }
         }
         // GET: api/<CheckListController>/CheckList/{idList}
@@ -65,7 +65,7 @@ namespace ShopList.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex.ToString();
             }
             return StatusCode(403);
         }
@@ -86,7 +86,7 @@ namespace ShopList.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex.ToString();
             }
             return StatusCode(403);
         }
@@ -111,7 +111,7 @@ namespace ShopList.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex.ToString();
             }
             return StatusCode(403);
         }
@@ -138,7 +138,7 @@ namespace ShopList.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex.ToString();
             }
             return StatusCode(403);
         }
@@ -147,7 +147,7 @@ namespace ShopList.Controllers
         [HttpPost]
         [Route("ShareCheckList/{userEmail}/{idList}")]
         [Authorize]
-        public async Task<IActionResult> PostShareCheckList(string userEmail, string idList)
+        public async Task<Object> PostShareCheckList(string userEmail, string idList)
         {
             try
             {
@@ -165,7 +165,7 @@ namespace ShopList.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex.ToString();
             }
             return StatusCode(403);
         }
@@ -186,7 +186,7 @@ namespace ShopList.Controllers
             }
             catch (Exception ex)
             {
-                throw ex;
+                return ex.ToString();
             }
             return StatusCode(403);
         }
