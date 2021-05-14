@@ -14,7 +14,7 @@ namespace ShopList.Repository
         {
             _context = context;
         }
-        public ICollection<TObject> GetAll()
+        public virtual ICollection<TObject> GetAll()
         {
             return _context.Set<TObject>().ToList();
         }
@@ -23,24 +23,24 @@ namespace ShopList.Repository
             return _context.Set<TObject>().ToList();
         }
 
-        public async Task<ICollection<TObject>> GetAllAsync()
+        public virtual async Task<ICollection<TObject>> GetAllAsync()
         {
             return await _context.Set<TObject>().ToListAsync();
         }
-        public async Task<ICollection<TObject>> GetAllAsync(Key key)
+        public virtual async Task<ICollection<TObject>> GetAllAsync(Key key1, Key Key2)
         {
             return await _context.Set<TObject>().ToListAsync();
         }
-        public TObject Get(Key key)
+        public virtual TObject Get(Key key)
         {
             return _context.Set<TObject>().Find(key);
         }
 
-        public async Task<TObject> GetAsync(Key key)
+        public virtual async Task<TObject> GetAsync(Key key)
         {
             return await _context.Set<TObject>().FindAsync(key);
         }
-        public TObject Add(TObject t)
+        public virtual TObject Add(TObject t)
         {
             _context.Set<TObject>().Add(t);
             _context.SaveChanges();
@@ -54,12 +54,12 @@ namespace ShopList.Repository
             return t;
         }
 
-        public async void Save()
+        public virtual async void Save()
         {
             await _context.SaveChangesAsync();
         }
 
-        public TObject Update(TObject updated, Key key)
+        public virtual TObject Update(TObject updated, Key key)
         {
             if (updated == null)
                 return null;
@@ -73,7 +73,7 @@ namespace ShopList.Repository
             return existing;
         }
 
-        public virtual async Task<TObject> UpdateAsync(TObject updated, Key key)
+        public  virtual async Task<TObject> UpdateAsync(TObject updated, Key key)
         {
             if (updated == null)
                 return null;
@@ -87,24 +87,24 @@ namespace ShopList.Repository
             return existing;
         }
 
-        public void Delete(TObject t)
+        public virtual void Delete(TObject t)
         {
             _context.Set<TObject>().Remove(t);
             _context.SaveChanges();
         }
 
-        public async Task<int> DeleteAsync(TObject t)
+        public virtual async Task<int> DeleteAsync(TObject t)
         {
             _context.Set<TObject>().Remove(t);
             return await _context.SaveChangesAsync();
         }
 
-        public int Count()
+        public virtual int Count()
         {
             return _context.Set<TObject>().Count();
         }
 
-        public async Task<int> CountAsync()
+        public virtual async Task<int> CountAsync()
         {
             return await _context.Set<TObject>().CountAsync();
         }

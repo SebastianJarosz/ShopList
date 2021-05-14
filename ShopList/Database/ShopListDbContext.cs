@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ShopList.Models;
+using ShopList.Models.ShopingListsModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,13 @@ namespace ShopList.Database
             base.OnModelCreating(modelBuilder);
 
         }
-
+        //User 
         public DbSet<User> User { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<UsersLoginHistory> UsersLoginHistory { get; set; }
         public DbSet<UserAuthorisation> UserAuthorisation { get; set; }
+
+        //ShopList
+        public DbSet<CheckList> CheckList { get; set; }
     }
 }

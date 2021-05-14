@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using ShopList.Database;
@@ -9,9 +10,10 @@ using ShopList.Database;
 namespace ShopList.Migrations
 {
     [DbContext(typeof(ShopListDbContext))]
-    partial class ShopListDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210513045541_CheckList-init")]
+    partial class CheckListinit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -175,9 +177,6 @@ namespace ShopList.Migrations
                     b.Property<string>("ListPostion")
                         .IsRequired()
                         .HasColumnType("text");
-
-                    b.Property<float>("ShopPrice")
-                        .HasColumnType("real");
 
                     b.Property<int>("Status")
                         .HasColumnType("integer");

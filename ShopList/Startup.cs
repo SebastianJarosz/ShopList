@@ -19,6 +19,8 @@ using System.Text;
 using System;
 using ShopList.Mapper;
 using ShopList.Repository;
+using ShopList.Models.ShopingListsModel;
+using ShopList.Repository.CheckListRepository;
 
 namespace ShopList
 {
@@ -98,6 +100,7 @@ namespace ShopList
             services.AddAutoMapper(c => c.AddProfile<AutoMap>(), typeof(Startup));
             services.AddScoped<AbstractCRUDCreator<UserAuthorisation, string>, UserAuthorisationRepository>();
             services.AddScoped<AbstractCRUDCreator<UsersLoginHistory, int>, UsersLoginHistoryRepsitory>();
+            services.AddScoped<AbstractCRUDCreator<CheckList, string>, CheckListRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
