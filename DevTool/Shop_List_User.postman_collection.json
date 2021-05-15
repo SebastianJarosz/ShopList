@@ -1,0 +1,352 @@
+{
+	"info": {
+		"_postman_id": "a27274d7-18ab-4dc4-8313-c6a541be4d87",
+		"name": "Shop_List_User",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registry_New_User",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Name\": \"Tester1\",\r\n    \"Surname\": \"Tester\",\r\n    \"UserName\": \"Tester1\",\r\n    \"Password\": \"Czekolada23@\",\r\n    \"Email\": \"Tester1@serwis.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/Users/Registry",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"Registry"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User_Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"UserName\": \"Tester1\",\r\n            \"Password\": \"Czekolada23@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/Users/UserLogin",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"UserLogin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Active_User",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJhYjdmMWFlMi04ZWE3LTRkOWItOWJmZi03Y2JmMWI3NWI3OTIiLCJuYmYiOjE2MTU1NjAyNzYsImV4cCI6MTYxNTU2MTI5NiwiaWF0IjoxNjE1NTYwMjc2fQ.Oesrtm4t_HU3qYvhBt0lFAaTF3xqZOYwPTJmCu9q7_8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/Users/UserToActive/ad927cc7-3d24-4a52-a7b7-d3065bc2c5e1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"UserToActive",
+						"ad927cc7-3d24-4a52-a7b7-d3065bc2c5e1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Own_Acount",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiI5Yzk3ZDZhYS0yN2FjLTRiN2YtODY5My00YTQwZjI5MGQ2NTMiLCJuYmYiOjE2MTU0ODg4NzgsImV4cCI6MTYxNTQ4OTg5OCwiaWF0IjoxNjE1NDg4ODc4fQ.URjpiv5IGbIr0Nar2QdM3nNXGI5SiQR0D4Bv_8XqisM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/Users/Delete/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"Delete",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change_User_Role",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMDNkMGM4Mi0wZTY3LTRiZjQtYWU5Yy00NmMyYzhmYWYyZjMiLCJuYmYiOjE2MTU4Mjc2MjEsImV4cCI6MTYxNTgyODY0MSwiaWF0IjoxNjE1ODI3NjIxfQ.-zFBsV0Ph1_RgLRWwd3o9-4GlyT8Wo3fsodDVuHQS_w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userGuid\": \"ad927cc7-3d24-4a52-a7b7-d3065bc2c5e1\",\r\n    \"newUserRole\": \"NormalUser\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/Users/ChangeUserRole",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"ChangeUserRole"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_User_By_Admin",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJhYjdmMWFlMi04ZWE3LTRkOWItOWJmZi03Y2JmMWI3NWI3OTIiLCJuYmYiOjE2MTU0ODk5OTAsImV4cCI6MTYxNTQ5MTAxMCwiaWF0IjoxNjE1NDg5OTkwfQ.2KZgOUSD7zyRipnvA_8Sd9cQRaFVj1SJoPLcOVVmCKQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/Users/DeleteByAdmin/1c02d2ab-cdb4-4b6b-8190-2df4d9576c70",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"DeleteByAdmin",
+						"1c02d2ab-cdb4-4b6b-8190-2df4d9576c70"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_All_Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMDNkMGM4Mi0wZTY3LTRiZjQtYWU5Yy00NmMyYzhmYWYyZjMiLCJuYmYiOjE2MTU1NzQyOTUsImV4cCI6MTYxNTU3NTMxNSwiaWF0IjoxNjE1NTc0Mjk1fQ.DruPe3htypOo_IP5Pxcw2qaLoEcePzimZ60GfOYMl5c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/Users/ListOfUser",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"ListOfUser"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_My_Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMTYzNGU4MS05ODE2LTQyNmYtOGY2NC1hMWQzNGMzZjNjYjMiLCJuYmYiOjE2MjA4NDY5NjUsImV4cCI6MTYyMDg0Nzk4NSwiaWF0IjoxNjIwODQ2OTY1fQ.UoqVRP4fshlT8Riq-bXB2cnzcqKWVlFD1VTA7vLWbkw",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/Users/MyProfile",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"MyProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_User_Profile",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJhYjdmMWFlMi04ZWE3LTRkOWItOWJmZi03Y2JmMWI3NWI3OTIiLCJuYmYiOjE2MTU1NjE1NjEsImV4cCI6MTYxNTU2MjU4MSwiaWF0IjoxNjE1NTYxNTYxfQ.5Y91Z2NHnLzKSgs9D_CYCwT_ia2OJLQ6FQIlL_0Gv_A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/Users/UserProfile/9c97d6aa-27ac-4b7f-8693-4a40f290d653",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"UserProfile",
+						"9c97d6aa-27ac-4b7f-8693-4a40f290d653"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check_UserName_Is_Taken",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/Users/CheckUserName/Serwis",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"CheckUserName",
+						"Serwis"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check_Email_isTaken",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/Users/CheckEmail/serwis@serwis.com",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"Users",
+						"CheckEmail",
+						"serwis@serwis.com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

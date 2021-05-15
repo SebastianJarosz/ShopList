@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "9382e61d-9ce8-46f4-bfb8-44dde51e6ab3",
+		"name": "Shop_List_Check_List",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get_All_Check_List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMTYzNGU4MS05ODE2LTQyNmYtOGY2NC1hMWQzNGMzZjNjYjMiLCJuYmYiOjE2MjA5MzYxMzUsImV4cCI6MTYyMDkzNzE1NSwiaWF0IjoxNjIwOTM2MTM1fQ.mbqT1Z6L0xJ-RLXLjZeKAlCj3VR3U3s3_iq_KX3ILSc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/CheckList/AllCheckList/Active",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"CheckList",
+						"AllCheckList",
+						"Active"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Check_List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMTYzNGU4MS05ODE2LTQyNmYtOGY2NC1hMWQzNGMzZjNjYjMiLCJuYmYiOjE2MjA5NzE3MzksImV4cCI6MTYyMDk3Mjc1OSwiaWF0IjoxNjIwOTcxNzM5fQ._l-v70UlR9N_ynOK3IzYmNLajkntteIQ6ID83kgXjNM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/CheckList/CheckList/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"CheckList",
+						"CheckList",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put_Edit_Check_List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJhYjdmMWFlMi04ZWE3LTRkOWItOWJmZi03Y2JmMWI3NWI3OTIiLCJuYmYiOjE2MTU1NjAyNzYsImV4cCI6MTYxNTU2MTI5NiwiaWF0IjoxNjE1NTYwMjc2fQ.Oesrtm4t_HU3qYvhBt0lFAaTF3xqZOYwPTJmCu9q7_8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n    \"id\": 4,\r\n    \"listName\": \"Test\",\r\n    \"listPostion\": \"Tester\",\r\n    \"creationDate\": \"2021-05-14T07:36:21.166814\",\r\n    \"lastModficationDate\": \"2021-05-14T07:36:21.166814\",\r\n    \"shopPrice\": 0,\r\n    \"status\": 0,\r\n    \"userId\": \"f1634e81-9816-426f-8f64-a1d34c3f3cb3\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/CheckList/EditCheckList",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"CheckList",
+						"EditCheckList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add_New_Check_List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMTYzNGU4MS05ODE2LTQyNmYtOGY2NC1hMWQzNGMzZjNjYjMiLCJuYmYiOjE2MjA5NzA0ODYsImV4cCI6MTYyMDk3MTUwNiwiaWF0IjoxNjIwOTcwNDg2fQ.zU58fy6NJjqSKWFl4Mjz62h1OM9JdF3qKdnaWeMoT-c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ListName\": \"Test\",\r\n    \"ListPostion\": \"Tester\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/CheckList/AddCheckList",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"CheckList",
+						"AddCheckList"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post_Duplicate_Check_List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJhYjdmMWFlMi04ZWE3LTRkOWItOWJmZi03Y2JmMWI3NWI3OTIiLCJuYmYiOjE2MTU1NjE1NjEsImV4cCI6MTYxNTU2MjU4MSwiaWF0IjoxNjE1NTYxNTYxfQ.5Y91Z2NHnLzKSgs9D_CYCwT_ia2OJLQ6FQIlL_0Gv_A",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/CheckList/DuplicateCheckList/4",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"CheckList",
+						"DuplicateCheckList",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Share_Check_List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMTYzNGU4MS05ODE2LTQyNmYtOGY2NC1hMWQzNGMzZjNjYjMiLCJuYmYiOjE2MjA5NzE3MzksImV4cCI6MTYyMDk3Mjc1OSwiaWF0IjoxNjIwOTcxNzM5fQ._l-v70UlR9N_ynOK3IzYmNLajkntteIQ6ID83kgXjNM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n            \"UserName\": \"serwis\",\r\n            \"Password\": \"Czekolada23@\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44324/api/CheckList/ShareCheckList/admin@localhost/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"CheckList",
+						"ShareCheckList",
+						"admin@localhost",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete_Check_List",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOiJmMTYzNGU4MS05ODE2LTQyNmYtOGY2NC1hMWQzNGMzZjNjYjMiLCJuYmYiOjE2MjA5MzUyOTcsImV4cCI6MTYyMDkzNjMxNywiaWF0IjoxNjIwOTM1Mjk3fQ.LO66KipzKO39ULfjVrZ1t1HRJGMrQ_panaIp22_khBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:44324/api/CheckList/Delete/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44324",
+					"path": [
+						"api",
+						"CheckList",
+						"Delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
