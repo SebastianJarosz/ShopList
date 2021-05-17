@@ -1,1 +1,73 @@
-<p>sign-up works!</p>
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <div class="column-div">
+        <div class="row-div">
+            <mat-form-field hintLabel="Imie nie może przekroczyć" appearance="fill">
+                <mat-label>Wprowaź imię</mat-label>
+                <input 
+                matInput 
+                formControlName="name" 
+                #input maxlength="255"
+                required>
+                <mat-hint align="end">{{input.value?.length || 0}}/255</mat-hint>
+            </mat-form-field>
+            <mat-form-field hintLabel="Nazwisko nie może przekroczyć" appearance="fill">
+                <mat-label>Wprowadź nazwisko</mat-label>
+                <input
+                formControlName="surname" 
+                matInput 
+                #input maxlength="255" 
+                required>
+                <mat-hint align="end">{{input.value?.length || 0}}/255</mat-hint>
+            </mat-form-field>
+        </div>
+        <div class="row-div"> 
+            <mat-form-field hintLabel="Nazwa użytkonika nie może przekroczyć" appearance="fill">
+                <mat-label>Wprowaź nazwę użytkownika</mat-label>
+                <input 
+                matInput
+                formControlName="userName"  
+                #input maxlength="255" 
+                required>
+                <mat-hint align="end">{{input.value?.length || 0}}/255</mat-hint>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Wprowadź adres email</mat-label>
+                <input 
+                matInput 
+                formControlName="email" 
+                placeholder="pat@example.com" 
+                required>
+              </mat-form-field>
+        </div>
+        <div class="row-div">
+            <mat-form-field hintLabel="Hasło musi posaidać conajmniej długość 8 znaków, jedną dużą literę, jeden znak specjalny, jedną cyfrę" appearance="fill">
+                <mat-label>Wprowadź hasło</mat-label>
+                <input
+                formControlName="password"  
+                matInput [type]="hide ? 'password' : 'text'"  
+                required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Potwierdź hasło</mat-label>
+                <input
+                formControlName="repassword"  
+                matInput [type]="hide ? 'password' : 'text'"  
+                required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <mat-checkbox 
+        formControlName="acceptReg" 
+        required>Zgadzam się na warunki użytkowania serwisui regulamin.</mat-checkbox>
+        <div class="row-div">
+            <button mat-raised-button color="accent" [disabled]="signUpForm.invalid">Zarejestruj się</button>
+        </div>
+    </div>
+</form>
+
+

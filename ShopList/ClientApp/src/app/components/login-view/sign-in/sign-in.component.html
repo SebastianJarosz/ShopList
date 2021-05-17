@@ -1,1 +1,21 @@
-<p>sign-in works!</p>
+<form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+  <div class="main-div">
+    <mat-form-field appearance="fill">
+      <mat-label>Nazwa użytkownika</mat-label>
+      <input 
+      matInput 
+      formControlName="userName" 
+      required>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Wprowadź hasło</mat-label>
+      <input matInput
+      formControlName="password" 
+      [type]="hide ? 'password' : 'text'">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button color="primary" [disabled]="signInForm.invalid">Zaloguj się</button>
+  </div>
+</form>

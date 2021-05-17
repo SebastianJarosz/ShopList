@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import { LoginViewComponent } from './compnents/login-view/login-view.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { LoginViewComponent } from './components/login-view/login-view.component';
 import { SignInComponent } from './components/login-view/sign-in/sign-in.component';
 import { SignUpComponent } from './components/login-view/sign-up/sign-up.component';
 import { MainDesktopComponent } from './components/main-desktop/main-desktop.component';
@@ -21,6 +20,26 @@ import { UserProfileComponent } from './components/main-desktop/user-profile/use
 import { ListCardComponent } from './components/main-desktop/list-manager/shared/list-card/list-card.component';
 import { ListItemComponent } from './components/main-desktop/list-manager/shared/list-card/list-item/list-item.component';
 import { ListCardListsComponent } from './components/main-desktop/list-manager/shared/list-card-lists/list-card-lists.component';
+import { EditListComponent } from './components/main-desktop/list-manager/edit-list/edit-list.component';
+
+
+import { MatSliderModule } from '@angular/material/slider';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
+import { PostMethodService } from './shared/services/post-method.service';
+
+
+
+
+
+
 
 
 
@@ -40,17 +59,25 @@ import { ListCardListsComponent } from './components/main-desktop/list-manager/s
     UserProfileComponent,
     ListCardComponent,
     ListItemComponent,
-    ListCardListsComponent
+    ListCardListsComponent,
+    EditListComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatSliderModule,
     MatCardModule,
     MatButtonModule,
+    MatTabsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatCheckboxModule,
   ],
-  providers: [],
+  providers: [PostMethodService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

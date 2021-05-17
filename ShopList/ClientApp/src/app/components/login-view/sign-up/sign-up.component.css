@@ -1,0 +1,22 @@
+.column-div{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.row-div{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 10px 0;
+}
+.mat-form-field{
+    width: 250px;
+    margin: 0 10px;
+}
+.mat-checkbox{
+    margin: 10px 10px;
+}
+.mat-raised-button{
+    width: 200px;
+    align-items: center; 
+}
