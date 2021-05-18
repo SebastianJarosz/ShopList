@@ -29,7 +29,8 @@
                 #input maxlength="255" 
                 required>
                 <mat-hint align="end">{{input.value?.length || 0}}/255</mat-hint>
-            </mat-form-field>
+                <mat-error *ngIf="errorUserName != 'NoErrors'">{{errorUserName}}</mat-error>
+            </mat-form-field>        
             <mat-form-field appearance="fill">
                 <mat-label>Wprowadź adres email</mat-label>
                 <input 
@@ -37,7 +38,8 @@
                 formControlName="email" 
                 placeholder="pat@example.com" 
                 required>
-              </mat-form-field>
+                <mat-error *ngIf="errorEmail != 'NoErrors'">{{errorEmail}}</mat-error>
+            </mat-form-field>  
         </div>
         <div class="row-div">
             <mat-form-field hintLabel="Hasło musi posaidać conajmniej długość 8 znaków, jedną dużą literę, jeden znak specjalny, jedną cyfrę" appearance="fill">
@@ -49,6 +51,7 @@
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
+                <mat-error *ngIf="errorPass != 'NoErrors'">{{errorPass}}</mat-error>
             </mat-form-field>
             <mat-form-field appearance="fill">
                 <mat-label>Potwierdź hasło</mat-label>
@@ -61,13 +64,20 @@
                 </button>
             </mat-form-field>
         </div>
+        <br>
         <mat-checkbox 
         formControlName="acceptReg" 
         required>Zgadzam się na warunki użytkowania serwisui regulamin.</mat-checkbox>
+        <div class="errors">
+            <mat-error *ngIf="error != 'NoErrors'">{{error}}</mat-error>
+        </div>
         <div class="row-div">
             <button mat-raised-button color="accent" [disabled]="signUpForm.invalid">Zarejestruj się</button>
         </div>
     </div>
 </form>
+<section *ngIf="isFeaching">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+</section>
 
 

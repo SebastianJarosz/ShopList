@@ -9,11 +9,11 @@ import { LoginResponseModel } from '../../models/LoginResponseModel';
 })
 export class SigninService {
 
-  constructor(private httpCilent: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
 
   post(url: string,  postData: IPostData){
-   return this.httpCilent.post<LoginResponseModel>(url,
+   return this.httpClient.post<LoginResponseModel>(url,
      postData,
      {
        observe:'response'
@@ -22,7 +22,7 @@ export class SigninService {
   }
 
   get(url: string){
-   return this.httpCilent.get<LoginResponseModel>(url)
+   return this.httpClient.get<LoginResponseModel>(url)
     .pipe(map((responseData: any) => {
       const responseArray = [];
       for (const key in responseData){

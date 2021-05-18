@@ -32,10 +32,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SigninService } from './shared/services/login-service/signin.service';
+import { SignUpSuccessComponent } from './components/login-view/sign-up/sign-up-success/sign-up-success.component';
 
 
 
@@ -64,6 +67,7 @@ import { SigninService } from './shared/services/login-service/signin.service';
     ListCardListsComponent,
     EditListComponent,
     NotFoundComponent,
+    SignUpSuccessComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,6 +84,7 @@ import { SigninService } from './shared/services/login-service/signin.service';
     MatIconModule,
     MatCheckboxModule,
     MatProgressBarModule,
+    MatSnackBarModule,
   ],
   providers: [SigninService],
   bootstrap: [AppComponent]
