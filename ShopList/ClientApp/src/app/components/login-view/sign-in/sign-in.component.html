@@ -16,6 +16,12 @@
         <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </button>
     </mat-form-field>
+    <div class="errors">
+      <mat-error *ngIf="error != 'NoErrors'">{{error}}</mat-error>
+    </div>
     <button mat-raised-button color="primary" [disabled]="signInForm.invalid">Zaloguj się</button>
   </div>
 </form>
+<section *ngIf="isFeaching">
+  <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+ </section>

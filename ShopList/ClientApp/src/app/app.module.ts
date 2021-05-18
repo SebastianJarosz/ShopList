@@ -21,7 +21,7 @@ import { ListCardComponent } from './components/main-desktop/list-manager/shared
 import { ListItemComponent } from './components/main-desktop/list-manager/shared/list-card/list-item/list-item.component';
 import { ListCardListsComponent } from './components/main-desktop/list-manager/shared/list-card-lists/list-card-lists.component';
 import { EditListComponent } from './components/main-desktop/list-manager/edit-list/edit-list.component';
-
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 import { MatSliderModule } from '@angular/material/slider';
 import { MatCardModule } from '@angular/material/card';
@@ -31,9 +31,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
-import { PostMethodService } from './shared/services/post-method.service';
+
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { SigninService } from './shared/services/login-service/signin.service';
 
 
 
@@ -68,6 +70,7 @@ import { PostMethodService } from './shared/services/post-method.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    HttpClientModule,
     MatSliderModule,
     MatCardModule,
     MatButtonModule,
@@ -76,8 +79,9 @@ import { PostMethodService } from './shared/services/post-method.service';
     MatFormFieldModule,
     MatIconModule,
     MatCheckboxModule,
+    MatProgressBarModule,
   ],
-  providers: [PostMethodService],
+  providers: [SigninService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
