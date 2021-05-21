@@ -72,7 +72,7 @@
             <mat-error *ngIf="error != 'NoErrors'">{{error}}</mat-error>
         </div>
         <div class="row-div">
-            <button mat-raised-button color="accent" [disabled]="signUpForm.invalid">Zarejestruj się</button>
+            <button mat-raised-button color="accent" [disabled]="signUpForm?.invalid">Zarejestruj się</button>
         </div>
     </div>
 </form>

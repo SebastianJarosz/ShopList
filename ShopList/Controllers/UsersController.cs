@@ -202,7 +202,7 @@ namespace ShopList
                         Subject = new ClaimsIdentity(new Claim[] {
                             new Claim("UserID", user.Id.ToString())
                         }),
-                        Expires = DateTime.UtcNow.AddMinutes(17),
+                        Expires = DateTime.UtcNow.AddMinutes(1440),
                         SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_appSettings.JWT_Secret)), SecurityAlgorithms.HmacSha256Signature)
                     };
                     var tokenHandler = new JwtSecurityTokenHandler();

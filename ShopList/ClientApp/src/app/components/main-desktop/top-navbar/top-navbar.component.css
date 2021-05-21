@@ -1,0 +1,7 @@
+.icon-display {
+    transform: scale(1.5);
+ }
+ .icon-button-display{
+    transform: scale(1.5);
+    margin: 0 25px;
+ }

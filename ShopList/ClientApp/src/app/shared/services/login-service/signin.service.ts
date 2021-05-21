@@ -22,15 +22,38 @@ export class SigninService {
   }
 
   get(url: string){
-   return this.httpClient.get<LoginResponseModel>(url)
-    .pipe(map((responseData: any) => {
-      const responseArray = [];
-      for (const key in responseData){
-        if(responseData.hasOwnProperty(key)){
-          responseArray.push({...responseData[key], id: key })
+    let tokenParse = localStorage.getItem('token');
+    let token = `${tokenParse}`.replace( /"/g ,' ');
+    console.log(token);
+    return this.httpClient.get<LoginResponseModel>(url, 
+      { 
+        headers:{
+          'Authorization': `Bearer ${token}`
         }
-      }
-      return responseArray;
+      })
+    .pipe(map((responseData: any) => {
+          return responseData;
     }));
   }
 }
+
+// get(url: string){
+//   let tokenParse = localStorage.getItem('token');
+//   let token = `${tokenParse}`.replace( /"/g ,' ');
+//   console.log(token);
+//   return this.httpClient.get<LoginResponseModel>(url, 
+//     { 
+//       headers:{
+//         'Authorization': `Bearer ${token}`
+//       }
+//     })
+//   .pipe(map((responseData: any) => {
+//     const responseArray = [];
+//     for (const key in responseData){
+//       if(responseData.hasOwnProperty(key)){
+//         responseArray.push({...responseData[key], id: key })
+//       }
+//     }
+//     return responseArray;
+//   }));
+// }

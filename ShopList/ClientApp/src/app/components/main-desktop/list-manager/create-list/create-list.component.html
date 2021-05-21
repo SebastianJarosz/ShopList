@@ -1,1 +1,91 @@
-<p>create-list works!</p>
+<div class="main-div">
+    <form [formGroup]="createShopListForm" (ngSubmit)="onSubmit()">
+        <mat-toolbar>
+            <span>Nowa lista zakupów: 
+                <mat-form-field appearance="legacy">
+                    <mat-label>Nazwa listy</mat-label>
+                    <input 
+                        matInput 
+                        required
+                        formControlName="listName" 
+                        placeholder="Nazwa">
+                </mat-form-field>
+            </span>
+        </mat-toolbar>
+        <div formArrayName="shopPostions">
+            <h4>Lista zakupów</h4>
+            <div class="scroll-div-inside">  
+                <div class="wraper"
+                *ngFor="let shopPostion of shopPostions.controls; let i =index"
+                >
+                    <div [formGroupName]="i">
+                        <mat-form-field  class="pos-name">
+                            <mat-label>Nazwa</mat-label>
+                            <input 
+                                matInput
+                                required
+                                formControlName ='posName'
+                                placeholder="Nazwa">
+                            <mat-error>
+                            Nazwa jest <strong>wymagana</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field  class="quantity">
+                            <mat-label>Ilość</mat-label>
+                            <input 
+                                type="number"
+                                step="0.01"
+                                matInput
+                                required
+                                formControlName ='quantity'
+                                placeholder="ilosć">
+                            <mat-error>
+                            Ilość jest <strong>wymagana</strong>
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field class="unit">
+                            <mat-label>Jednostka</mat-label>
+                            <input 
+                                matInput 
+                                required
+                                formControlName ='unit'
+                                placeholder="jednostka">
+                            <mat-error>
+                            Jednostka jest <strong>wymagana</strong>
+                            </mat-error>
+                        </mat-form-field> 
+                        <button 
+                        mat-mini-fab 
+                        color="warn" 
+                        #tooltip="matTooltip"
+                        matTooltip="usuń pozycję z listy"
+                        (click)="removePostion(i)"
+                        >
+                            <mat-icon>close</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="errors">
+            <mat-error *ngIf="error != 'NoErrors'">{{error}}</mat-error>
+        </div>
+        <mat-toolbar>
+            <button mat-raised-button color="primary" [disabled]="createShopListForm.invalid">Zapisz</button>
+            <button mat-button color="base" mat-dialog-close>Anuluj</button>   
+            <span class="example-spacer"></span>
+            <button mat-fab color="accent"
+                #tooltip="matTooltip"
+                matTooltip="Dodaj nowy produkt na listę"
+                type="button"
+                (click) ="addShopPostion()"
+                >    
+                <mat-icon>add</mat-icon>
+            </button>
+        </mat-toolbar>
+        <section *ngIf="isFeaching">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </section>
+    </form>
+</div>
+
