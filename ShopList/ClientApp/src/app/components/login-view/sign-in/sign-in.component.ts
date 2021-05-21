@@ -1,9 +1,12 @@
 import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { LoginPostModel } from 'src/app/shared/models/LoginPostModel';
 import { LoginResponseModel } from 'src/app/shared/models/LoginResponseModel';
+import { UserProfileModel } from 'src/app/shared/models/user-profile-model';
 import { SigninService } from 'src/app/shared/services/login-service/signin.service';
+import { UserProfileService } from 'src/app/shared/services/user-profile/user-profile.service';
 import { UrlSettings } from 'src/app/shared/url-settings';
 
 @Component({
@@ -13,13 +16,14 @@ import { UrlSettings } from 'src/app/shared/url-settings';
 })
 export class SignInComponent implements OnInit {
   
-  signInForm: FormGroup= new FormGroup({});
+  signInForm: FormGroup = new FormGroup({});
   hide: boolean = true;
   isFeaching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
 
-  constructor(private rest: SigninService) { }
+  constructor(private rest: SigninService, private router: Router, 
+              private userProfile: UserProfileService) { }
 
   ngOnInit(): void {
     this.signInForm = new FormGroup({
@@ -37,7 +41,11 @@ export class SignInComponent implements OnInit {
 
     this.rest.post(this.url.concat('Users/UserLogin'), login).subscribe(responseData => {
       responseData.body?.token;
-      localStorage.setItem("userData", JSON.stringify(responseData.body));
+      localStorage.setItem("token", JSON.stringify(responseData.body?.token));
+      let user: any = responseData.body;
+      this.userProfile.createUserProfile(user);
+      sessionStorage.setItem("userData", JSON.stringify(this.userProfile.getUserProfile()));
+      this.router.navigate(['main-panel']);
       this.isFeaching = false; 
      },
       error => {

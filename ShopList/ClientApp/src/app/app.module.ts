@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import { LoginViewComponent } from './components/login-view/login-view.component';
 import { SignInComponent } from './components/login-view/sign-in/sign-in.component';
@@ -32,21 +33,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatTableModule } from '@angular/material/table';
 
-
-
-import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { SigninService } from './shared/services/login-service/signin.service';
 import { SignUpSuccessComponent } from './components/login-view/sign-up/sign-up-success/sign-up-success.component';
-
-
-
-
-
-
-
-
+import { AuthGuardService } from './shared/auth/auth-guard.service';
+import { AuthService } from './shared/auth/auth.service';
+import { RegistryService } from './shared/services/login-service/registry.service';
+import { LoginAuthGouardService } from './shared/auth/login-auth-gouard.service';
+import { LoginAuthService } from './shared/auth/login-auth.service';
+import { UserProfileService } from './shared/services/user-profile/user-profile.service';
+import { FooterComponent } from './components/main-desktop/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +71,7 @@ import { SignUpSuccessComponent } from './components/login-view/sign-up/sign-up-
     EditListComponent,
     NotFoundComponent,
     SignUpSuccessComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,8 +89,22 @@ import { SignUpSuccessComponent } from './components/login-view/sign-up/sign-up-
     MatCheckboxModule,
     MatProgressBarModule,
     MatSnackBarModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatTooltipModule,
+    MatDialogModule,
+    MatTableModule,
   ],
-  providers: [SigninService],
+  providers: [
+    SigninService,
+    AuthGuardService, 
+    AuthService, 
+    RegistryService, 
+    LoginAuthGouardService, 
+    LoginAuthService,
+    UserProfileService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
