@@ -5,3 +5,10 @@
     transform: scale(1.5);
     margin: 0 25px;
  }
+ .mat-toolbar{
+   top:0;
+   width:100%;
+   position:fixed;
+   z-index:150;
+   _position:absolute;
+}

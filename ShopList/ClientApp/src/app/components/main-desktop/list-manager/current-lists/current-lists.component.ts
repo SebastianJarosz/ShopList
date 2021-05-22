@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ShopListModel } from 'src/app/shared/models/shop-list-model';
+import { ShopListService } from 'src/app/shared/services/list-service/shop-list.service';
+import { UrlSettings } from 'src/app/shared/url-settings';
 
 @Component({
   selector: 'app-current-lists',
@@ -7,9 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CurrentListsComponent implements OnInit {
 
-  constructor() { }
+  shopLists?: Array<ShopListModel>;
+  shopList?: ShopListModel;
+  isFeaching: boolean = false;
+  error: string='NoErrors';
+  url: string = new UrlSettings().baseUrl;
+  constructor(private shopListService: ShopListService) { }
 
   ngOnInit(): void {
+    this.isFeaching=true
+    this.shopListService.
+      getAll(this.url.concat("CheckList/AllCheckList/0")).subscribe(responseData  => {
+        console.log(responseData);
+        console.log(this.shopLists);
+        this.isFeaching = false; 
+        },
+        error => {
+            if(error.status == 403){
+              this.error = 'Odmowa dostępu';
+              console.error('Odmowa dostępu');
+            }else if(error.status == 500){
+              this.error = 'Błąd połączenia z serwerem';
+              console.error('Błąd połaczeniaz serwerem');
+            }
+            this.isFeaching = false; 
+          }
+        );
   }
 
+   
 }

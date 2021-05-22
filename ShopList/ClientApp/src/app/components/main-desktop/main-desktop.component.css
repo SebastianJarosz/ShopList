@@ -1,9 +1,10 @@
+body {
+    margin: 0px;
+    height: 100%;
+    width: 100%
+}
 .main-div{
-    display: flex;
-    justify-content: center;
-    align-items: center; 
+    background-color: indigo;
     width: 100%;
-    margin: 0;
-    height: 80vh;
-    background-color:whitesmoke;
+    height: 100%;
 }

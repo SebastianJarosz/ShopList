@@ -19,7 +19,6 @@ import { RecentlyListsComponent } from './components/main-desktop/list-manager/r
 import { SharedListsComponent } from './components/main-desktop/list-manager/shared-lists/shared-lists.component';
 import { UserProfileComponent } from './components/main-desktop/user-profile/user-profile.component';
 import { ListCardComponent } from './components/main-desktop/list-manager/shared/list-card/list-card.component';
-import { ListItemComponent } from './components/main-desktop/list-manager/shared/list-card/list-item/list-item.component';
 import { ListCardListsComponent } from './components/main-desktop/list-manager/shared/list-card-lists/list-card-lists.component';
 import { EditListComponent } from './components/main-desktop/list-manager/edit-list/edit-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
@@ -40,7 +39,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
+import { MatGridListModule } from '@angular/material/grid-list';
 
+import { ShopListService } from 'src/app/shared/services/list-service/shop-list.service';
 import { SigninService } from './shared/services/login-service/signin.service';
 import { SignUpSuccessComponent } from './components/login-view/sign-up/sign-up-success/sign-up-success.component';
 import { AuthGuardService } from './shared/auth/auth-guard.service';
@@ -50,6 +51,8 @@ import { LoginAuthGouardService } from './shared/auth/login-auth-gouard.service'
 import { LoginAuthService } from './shared/auth/login-auth.service';
 import { UserProfileService } from './shared/services/user-profile/user-profile.service';
 import { FooterComponent } from './components/main-desktop/footer/footer.component';
+import { ShopListModel } from './shared/models/shop-list-model';
+import { ListItemComponent } from './components/main-desktop/list-manager/shared/list-card/list-item/list-item.component';
 
 @NgModule({
   declarations: [
@@ -66,12 +69,12 @@ import { FooterComponent } from './components/main-desktop/footer/footer.compone
     SharedListsComponent,
     UserProfileComponent,
     ListCardComponent,
-    ListItemComponent,
     ListCardListsComponent,
     EditListComponent,
     NotFoundComponent,
     SignUpSuccessComponent,
     FooterComponent,
+    ListItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -95,6 +98,7 @@ import { FooterComponent } from './components/main-desktop/footer/footer.compone
     MatTooltipModule,
     MatDialogModule,
     MatTableModule,
+    MatGridListModule,
   ],
   providers: [
     SigninService,
@@ -104,6 +108,7 @@ import { FooterComponent } from './components/main-desktop/footer/footer.compone
     LoginAuthGouardService, 
     LoginAuthService,
     UserProfileService,
+    ShopListService,
   ],
   bootstrap: [AppComponent]
 })

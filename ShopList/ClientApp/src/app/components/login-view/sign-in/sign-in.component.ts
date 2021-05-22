@@ -54,7 +54,7 @@ export class SignInComponent implements OnInit {
             console.error('Nieprawidłowy login lub hasło');
           }else if(error.status == 500){
             this.error = 'Błąd połączenia z serwerem';
-            console.error('Nieprawidłowy login lub hasło');
+            console.error('Błąd połączenia z serwerem');
           }
           this.isFeaching = false; 
         }
