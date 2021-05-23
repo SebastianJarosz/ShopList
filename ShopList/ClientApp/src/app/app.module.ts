@@ -53,6 +53,7 @@ import { UserProfileService } from './shared/services/user-profile/user-profile.
 import { FooterComponent } from './components/main-desktop/footer/footer.component';
 import { ShopListModel } from './shared/models/shop-list-model';
 import { ListItemComponent } from './components/main-desktop/list-manager/shared/list-card/list-item/list-item.component';
+import { ShareListDialogComponent } from './components/main-desktop/list-manager/share-list-dialog/share-list-dialog.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { ListItemComponent } from './components/main-desktop/list-manager/shared
     SignUpSuccessComponent,
     FooterComponent,
     ListItemComponent,
+    ShareListDialogComponent,
   ],
   imports: [
     BrowserModule,

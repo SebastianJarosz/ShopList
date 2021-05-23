@@ -47,7 +47,9 @@ export class CreateListComponent implements OnInit {
     this.shopListService.post(this.url.concat("CheckList/AddCheckList"), createShopListModel)
     .subscribe(responseData => {
       console.log(responseData.body);
-      this.router.navigate(['main-panel/list-manager/current-lists']);
+      this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['main-panel/list-manager/current-lists']);
+    }); 
       this.isFeaching = false; 
       this.dialog.closeAll();
      },

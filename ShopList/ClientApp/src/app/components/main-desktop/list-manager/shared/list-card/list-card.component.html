@@ -5,3 +5,25 @@
 ></app-list-item>
 <p>{{creationDate}}</p>
 <p>{{shopPrice}}</p>
+<button 
+    mat-button color="accent" 
+    (click)="sendToOld()"
+    *ngIf="status === 0"
+    >Zakończ</button>
+<button 
+    mat-button color="accent" 
+    (click)="sendToOld()"
+    *ngIf="status === 1"
+    >Przywróć</button>
+<button 
+    mat-button color="accent" 
+    (click)="sendToOld()"
+    *ngIf="status === 2"
+    >Dodaj do moich list</button>
+<button 
+    mat-button color="base" 
+    (click)="openDialog()"
+    *ngIf="status !== 2"
+    >Udostępnij</button>
+<button mat-button color="warn" (click)="delete()">Usuń</button>
+

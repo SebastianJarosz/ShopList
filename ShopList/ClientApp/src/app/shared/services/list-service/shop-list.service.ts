@@ -10,10 +10,7 @@ import { ShopListModel } from '../../models/shop-list-model';
 export class ShopListService {
 
   constructor(private httpClient: HttpClient) { }
-  json_string='[{"posName":"pomidor","quantity":2,"unit":"szt"},{"posName":"lody","quantity":1,"unit":"opk"}]'
-  shopLists?: Array<ShopListModel> = [
-    new ShopListModel(1, "test", this.json_string, Date.now.toString(), Date.now.toString(), 1, "Aktywny"),
-    new ShopListModel(1, "test", this.json_string, Date.now.toString(), Date.now.toString(), 1, "Aktywny")]
+  shopLists?: Array<ShopListModel>;
   shopList?: ShopListModel;
 
   getAll(url: string){
@@ -29,10 +26,8 @@ export class ShopListService {
     })
   .pipe(map((responseData: any) => {
     const responseArray: Array<ShopListModel> = [];
-    for (const key in responseData){
-      if(responseData.hasOwnProperty(key)){
-        responseArray.push({...responseData[key], id: key })
-      }
+    for (const el of responseData){
+        responseArray.push(el)
     }
     return responseArray;
   }));
@@ -50,4 +45,28 @@ export class ShopListService {
         }
       });
    }
+   update(url: string,  postData: any){
+    let tokenParse = localStorage.getItem('token');
+    let token = `${tokenParse}`.replace( /"/g ,' ');
+    return this.httpClient.put<ShopListModel>(url,
+      postData,
+      {
+        observe:'response',
+        headers:{
+          'Authorization': `Bearer ${token}`
+        }
+      });
+   }
+   delete(url: string){
+    let tokenParse = localStorage.getItem('token');
+    let token = `${tokenParse}`.replace( /"/g ,' ');
+    return this.httpClient.delete<ShopListModel>(url,
+      {
+        observe:'response',
+        headers:{
+          'Authorization': `Bearer ${token}`
+        }
+      });
+   }
+   
 }

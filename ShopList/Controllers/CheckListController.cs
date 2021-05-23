@@ -41,7 +41,7 @@ namespace ShopList.Controllers
                
                 return Ok((await _checkListRepository.GetAllAsync(userId, status))
                     .Select(checkList => _mapper.Map<CheckListDTO>(checkList))
-                    .OrderBy(checkList => checkList.LastModficationDate));
+                    .OrderByDescending(checkList => checkList.LastModficationDate));
             }
             catch (Exception ex)
             {

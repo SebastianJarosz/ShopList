@@ -21,7 +21,7 @@ export class CurrentListsComponent implements OnInit {
     this.isFeaching=true
     this.shopListService.
       getAll(this.url.concat("CheckList/AllCheckList/0")).subscribe(responseData  => {
-        console.log(responseData);
+        this.shopLists = responseData;
         console.log(this.shopLists);
         this.isFeaching = false; 
         },

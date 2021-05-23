@@ -1,0 +1,15 @@
+<form [formGroup]="shareListForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+    <mat-label>Wprowadz mail odbiorcy listy:</mat-label>
+    <input
+        formControlName="email"
+        matInput placeholder="odbiorca-listy@example.com"
+        required>
+    <mat-error *ngIf="shareListForm.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <button mat-raised-button 
+        color="primary" 
+        [disabled]="shareListForm?.invalid" 
+        type="submit">Wyślij</button>
+    <button mat-button color="base" mat-dialog-close>Anuluj</button>  
+</form>
