@@ -2,9 +2,6 @@
 .icon-display {
   transform: scale(1.5);
 }
-.flex-div{
-  display: inline-flex;
-}
 .add-icon{
     bottom:72px;
     right: 24px;
@@ -12,3 +9,4 @@
     z-index:151;
     _position:absolute;
 }
+

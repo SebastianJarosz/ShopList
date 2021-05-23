@@ -3,15 +3,17 @@ import { IPostData } from "../interface/IPostData";
 export class ShopListModel implements IPostData{
     id?: number;
     listName?: string;
-    listPostion?: Array<ListPostionModel>;
-    creationDate?: Date;
-    lastModficationDate?: Date;
+    listPostion?: string | any;
+    creationDate?: string;
+    lastModficationDate?: string;
     shopPrice?: number;
-    status?: string;
+    status?: number;
+
+    constructor(){}
 }
 
 export class ListPostionModel{
-    postionName?: string;
+    posName?: string;
     quantity?: number;
     unit?: string;
 }

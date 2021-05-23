@@ -1,8 +1,6 @@
-.example-spacer {
-    flex: 1 1 auto;
-  }
 .mat-toolbar{
     bottom:0;
+    width:100%;
     position:fixed;
     z-index:150;
     _position:absolute;

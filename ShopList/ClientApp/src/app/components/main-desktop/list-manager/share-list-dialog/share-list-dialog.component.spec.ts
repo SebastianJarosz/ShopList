@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListCardComponent } from './list-card.component';
+import { ShareListDialogComponent } from './share-list-dialog.component';
 
-describe('ListCardComponent', () => {
-  let component: ListCardComponent;
-  let fixture: ComponentFixture<ListCardComponent>;
+describe('ShareListDialogComponent', () => {
+  let component: ShareListDialogComponent;
+  let fixture: ComponentFixture<ShareListDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListCardComponent ]
+      declarations: [ ShareListDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListCardComponent);
+    fixture = TestBed.createComponent(ShareListDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -23,4 +23,3 @@ describe('ListCardComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-

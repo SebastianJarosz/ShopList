@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ListPostionModel } from 'src/app/shared/models/shop-list-model';
 
 @Component({
   selector: 'app-list-item',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListItemComponent implements OnInit {
 
-  constructor() { }
+  posName?: string;
+  quantity?: number;
+  unit?: string;
 
+  @Input() listPostion?: ListPostionModel;
+  
+  constructor() { }
   ngOnInit(): void {
+    this.posName = this.listPostion?.posName;
+    this.quantity = this.listPostion?.quantity;
+    this.unit = this.listPostion?.unit;
   }
 
 }

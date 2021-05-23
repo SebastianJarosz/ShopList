@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { ShopListServiceService } from 'src/app/shared/services/list-service/shop-list-service.service';
+import { ShopListService } from 'src/app/shared/services/list-service/shop-list.service';
 import { UrlSettings } from 'src/app/shared/url-settings';
 
 @Component({
@@ -17,7 +17,7 @@ export class CreateListComponent implements OnInit {
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
   
-  constructor(private shopListService: ShopListServiceService, private router: Router, private dialog: MatDialog) { }
+  constructor(private shopListService: ShopListService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.createShopListForm = new FormGroup({
@@ -47,7 +47,9 @@ export class CreateListComponent implements OnInit {
     this.shopListService.post(this.url.concat("CheckList/AddCheckList"), createShopListModel)
     .subscribe(responseData => {
       console.log(responseData.body);
-      this.router.navigate(['main-panel/list-manager/current-lists']);
+      this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['main-panel/list-manager/current-lists']);
+    }); 
       this.isFeaching = false; 
       this.dialog.closeAll();
      },
