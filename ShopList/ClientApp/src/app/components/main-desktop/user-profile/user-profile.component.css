@@ -1,0 +1,31 @@
+.mat-card{
+    height: 60%;
+    width: 60%;
+    min-width:350px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding:0;
+    
+  }
+  .mat-card-header{
+    padding-top: 16px;
+    background-color: #673ab7;
+    color: #fff;
+    align-items: center;
+    height:10%
+  }
+  .mat-card-content{
+      overflow-x: auto;
+      display: flex;
+      flex-direction: row;
+      height: 86%;
+      padding: 12px;
+  }
+  .row{
+      max-width:25%;
+      min-width:350px;
+  }

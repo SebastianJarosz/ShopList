@@ -1,4 +1,19 @@
 .mat-card{
     margin: 12px;
     background-color: rgb(253, 255, 139);
+    height: 300px;
+}
+.mat-card-header{
+    border-bottom: solid 1px rgb(105, 104, 104);
+}
+.mat-card-content{
+    margin: 12px 0
+}
+.mat-card-footer{
+    padding-top: 8px;
+    border-top: solid 1px rgb(105, 104, 104);;
+}
+.div-scroll{
+    height: 148px;
+    overflow-y: auto;
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { RegistryPostModel } from 'src/app/shared/models/RegistryPostModel';
+import { RegistryPostModel } from 'src/app/shared/models/registry-post-model';
 import { RegistryService } from 'src/app/shared/services/login-service/registry.service';
 import { UrlSettings } from 'src/app/shared/url-settings';
 import { SignUpSuccessComponent } from './sign-up-success/sign-up-success.component';
@@ -50,13 +50,12 @@ export class SignUpComponent implements OnInit {
                 this.signUpForm.value.password.toString(),
                 );
 
-    this.rest.post(this.url.concat('Users/Registry'), registryBody).subscribe(responseData => {
+    this.rest.post(`${this.url}Users/Registry`, registryBody).subscribe(responseData => {
       if(responseData.body?.succeeded == true){
         this.snackBar.openFromComponent(SignUpSuccessComponent, {
           duration: this.durationInSeconds * 1000,
         });
       }else{
-        console.log(responseData.body?.errors);
         if (responseData.body?.errors){
           for (let i = 0;  i < responseData.body?.errors.length; i++){
             switch (responseData.body?.errors[i].code){ 

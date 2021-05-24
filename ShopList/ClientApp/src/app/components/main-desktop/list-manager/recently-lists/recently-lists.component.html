@@ -2,11 +2,21 @@
     <mat-card-header>
        <mat-card-title>Ostanie listy zakupów</mat-card-title> 
     </mat-card-header>
-    <mat-card-content>
+    <section *ngIf="isFeaching">
+        <mat-progress-bar mode="indeterminate" color="accent"></mat-progress-bar>
+    </section>
+    <mat-card-content 
+        *ngIf="isNotEmpty">
         <app-list-card 
         *ngFor="let shopList of shopLists; let i = index" 
         class="row"
         [shopList]="shopList"
         ></app-list-card>
     </mat-card-content>
+    <mat-card-content
+    *ngIf="!isNotEmpty">
+    <mat-card-subtitle>
+        Brak aktualnie ostatnich list zakupów.
+    </mat-card-subtitle>
+    </mat-card-content> 
 </mat-card>

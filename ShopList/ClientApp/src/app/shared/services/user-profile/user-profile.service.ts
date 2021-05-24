@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoginResponseModel } from '../../models/LoginResponseModel';
+import { LoginResponseModel } from '../../models/login-response-model';
 import { UserProfileModel } from '../../models/user-profile-model';
 
 @Injectable({

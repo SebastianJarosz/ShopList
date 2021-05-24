@@ -1,1 +1,18 @@
-<p>user-profile works!</p>
+<mat-card [class.mat-elevation-z12]="true">
+    <mat-card-header>
+       <mat-card-title>Mój profil</mat-card-title> 
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-title-group>
+            <mat-card-subtitle>Nazwa użytkonika: <strong>{{userName |  titlecase}}</strong></mat-card-subtitle>
+            <mat-card-subtitle>
+                <mat-card-title-group>
+                    <mat-card-subtitle>Imię: <strong>{{name |  titlecase}}</strong>  Nazwisko: <strong>{{surname | titlecase}}</strong></mat-card-subtitle>
+                </mat-card-title-group>
+                <mat-card-title-group>
+                    <mat-card-subtitle>Email: <strong>{{email | lowercase}}</strong></mat-card-subtitle>
+                </mat-card-title-group>
+            </mat-card-subtitle>
+        </mat-card-title-group>
+    </mat-card-content>
+</mat-card>

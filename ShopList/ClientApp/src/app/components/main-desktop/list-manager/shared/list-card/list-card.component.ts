@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ShopListModel, ListPostionModel } from 'src/app/shared/models/shop-list-model';
 import { ShopListService } from 'src/app/shared/services/list-service/shop-list.service';
 import { UrlSettings } from 'src/app/shared/url-settings';
+import { RemoveListDialogComponent } from '../../remove-list-dialog/remove-list-dialog.component';
 import { ShareListDialogComponent } from '../../share-list-dialog/share-list-dialog.component';
 
 
@@ -69,7 +70,6 @@ export class ListCardComponent implements OnInit {
     }
 
     this.shopListService.update(`${this.url}CheckList/EditCheckList`, updateShopListModel).subscribe(responseData => {
-      console.log(responseData.body);
       this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
         this.router.navigate([this.navurl]);
     }); 
@@ -87,27 +87,15 @@ export class ListCardComponent implements OnInit {
         }
      );
   }
-  delete(){
-    this.shopListService.delete(this.url.concat("CheckList/Delete/").concat(this.id)).subscribe(responseData => {
-      this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
-        this.router.navigate(['main-panel/list-manager/recently-lists']);
-    }); 
-      this.isFeaching = false;
-     },
-      error => {
-          if(error.status == 403){
-            this.error = 'Błąd podczas przesłania polecenia do serwera';
-            console.error(this.error);
-          }else if(error.status == 500){
-            this.error = 'Błąd połączenia z serwerem';
-            console.error(this.error);
-          }
-          this.isFeaching = false; 
-        }
-     );
-  }
-  openDialog(){
+
+  openDialogShare(){
     const dialogRef = this.dialog.open(ShareListDialogComponent, {
+      width: '250px',
+      data: {id: this.shopList?.id}
+    });
+  }
+  openDialogRemove(){
+    const dialogRef = this.dialog.open(RemoveListDialogComponent, {
       width: '250px',
       data: {id: this.shopList?.id}
     });

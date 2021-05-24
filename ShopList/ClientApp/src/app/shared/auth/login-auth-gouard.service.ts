@@ -10,7 +10,7 @@ export class LoginAuthGouardService {
   constructor(public auth: LoginAuthService, public router: Router) { }
   canActivate(): boolean {
     if (!this.auth.isAuthenticated()) {
-      this.router.navigate(['/main-panel']);
+      this.router.navigate(['/main-panel/list-manager/current-lists']);
       return false;
     }
     return true;

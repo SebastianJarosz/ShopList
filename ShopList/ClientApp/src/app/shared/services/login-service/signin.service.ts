@@ -2,7 +2,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { IPostData } from '../../interface/IPostData';
-import { LoginResponseModel } from '../../models/LoginResponseModel';
+import { LoginResponseModel } from '../../models/login-response-model';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,6 @@ export class SigninService {
   get(url: string){
     let tokenParse = localStorage.getItem('token');
     let token = `${tokenParse}`.replace( /"/g ,' ');
-    console.log(token);
     return this.httpClient.get<LoginResponseModel>(url, 
       { 
         headers:{
@@ -36,24 +35,3 @@ export class SigninService {
     }));
   }
 }
-
-// get(url: string){
-//   let tokenParse = localStorage.getItem('token');
-//   let token = `${tokenParse}`.replace( /"/g ,' ');
-//   console.log(token);
-//   return this.httpClient.get<LoginResponseModel>(url, 
-//     { 
-//       headers:{
-//         'Authorization': `Bearer ${token}`
-//       }
-//     })
-//   .pipe(map((responseData: any) => {
-//     const responseArray = [];
-//     for (const key in responseData){
-//       if(responseData.hasOwnProperty(key)){
-//         responseArray.push({...responseData[key], id: key })
-//       }
-//     }
-//     return responseArray;
-//   }));
-// }

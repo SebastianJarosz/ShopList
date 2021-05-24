@@ -12,19 +12,19 @@
   
 }
 .mat-card-header{
+  padding-top: 16px;
   background-color: #673ab7;
   color: #fff;
   align-items: center;
   height:10%
 }
 .mat-card-content{
-    overflow-x: scroll;
+    overflow-x: auto;
     display: flex;
     flex-direction: row;
-    height: 90%;
+    height: 86%;
 }
 .row{
     max-width:25%;
     min-width:350px;
-    
 }

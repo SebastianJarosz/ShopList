@@ -1,17 +1,19 @@
 .mat-toolbar{
+    padding: 24px;
     background-color:white;
 }
 .example-spacer {
     flex: 1 1 auto;
 }
 .main-div{
-    height: 50vh;
+    height: 40vh;
+    width: 512px;
 }
 button{
     margin: 0 5px
 }
 .scroll-div-inside{
-    max-height: 24vh;
+    max-height: 132px;
     overflow-y: auto;
 }
 .row{
@@ -33,5 +35,8 @@ button{
     width: 20%;
 }
 .wraper{
-    width:680px;
+    width:488px;
+}
+.form{
+    height: 164px;
 }

@@ -1,11 +1,15 @@
 <mat-toolbar color="primary" [class.mat-elevation-z12]="true">
     <mat-toolbar-row *ngIf="!isMobile">
-        <button mat-icon-button [matMenuTriggerFor]="menu" class="icon-button-display">
-                <mat-icon class="icon-display">account_circle</mat-icon>
-        </button>
+
         <button mat-button color="base" (click)="goToMyList('current-lists')">Aktualne listy zakupów</button>
         <button mat-button color="base" (click)="goToMyList('recently-lists')">Historia list zakupów</button>
         <button mat-button color="base" (click)="goToMyList('shared-lists')">Udostępnione listy zakupów</button>
+        <span class="example-spacer"></span>
+        <mat-card-title-group> {{name | titlecase}}
+        <button mat-icon-button [matMenuTriggerFor]="menu" class="icon-button-display">
+          <mat-icon class="icon-display">account_circle</mat-icon>
+        </button>
+      </mat-card-title-group>
     </mat-toolbar-row>
     <mat-toolbar-row *ngIf="isMobile">
       <button mat-icon-button color="base">

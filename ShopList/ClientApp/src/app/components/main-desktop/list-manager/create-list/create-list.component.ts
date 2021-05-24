@@ -25,28 +25,25 @@ export class CreateListComponent implements OnInit {
       'shopPostions': this.shopPostions
     }); 
   }
-  addShopPostion(){
+  addShopPostion(): void{
     const control = new FormGroup({
       'posName': new FormControl(null, Validators.required),
       'quantity': new FormControl(null, Validators.required),
       'unit': new FormControl(null, Validators.required),
       });
       this.shopPostions.push(control);
-      console.log(this.createShopListForm.get('shopPostions')?.toString())
   }
-  removePostion(pos: number){
+  removePostion(pos: number): void{
     this.shopPostions.removeAt(pos);
-
   }
-  onSubmit(){
+  onSubmit(): void{
     this.isFeaching = true;
     const createShopListModel = {
       'listName': this.createShopListForm.get('listName')?.value,
       'listPostion': JSON.stringify(this.createShopListForm.get('shopPostions')?.value)
     }
-    this.shopListService.post(this.url.concat("CheckList/AddCheckList"), createShopListModel)
+    this.shopListService.post(`${this.url}CheckList/AddCheckList`, createShopListModel)
     .subscribe(responseData => {
-      console.log(responseData.body);
       this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
         this.router.navigate(['main-panel/list-manager/current-lists']);
     }); 

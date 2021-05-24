@@ -54,6 +54,7 @@ import { FooterComponent } from './components/main-desktop/footer/footer.compone
 import { ShopListModel } from './shared/models/shop-list-model';
 import { ListItemComponent } from './components/main-desktop/list-manager/shared/list-card/list-item/list-item.component';
 import { ShareListDialogComponent } from './components/main-desktop/list-manager/share-list-dialog/share-list-dialog.component';
+import { RemoveListDialogComponent } from './components/main-desktop/list-manager/remove-list-dialog/remove-list-dialog.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { ShareListDialogComponent } from './components/main-desktop/list-manager
     FooterComponent,
     ListItemComponent,
     ShareListDialogComponent,
+    RemoveListDialogComponent,
   ],
   imports: [
     BrowserModule,

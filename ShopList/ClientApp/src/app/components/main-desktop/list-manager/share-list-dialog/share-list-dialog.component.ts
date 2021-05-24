@@ -19,22 +19,18 @@ export class ShareListDialogComponent implements OnInit {
         'email': new FormControl('', [Validators.required, Validators.email]),
   });
 
-
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogDataShareList,
               private shopListService: ShopListService,
               public dialog: MatDialog
               ) { }
   
   ngOnInit(): void {
-    console.log(this.data.id);
   }
 
   onSubmit(){
-    console.log(`${this.url}CheckList/ShareCheckList/${this.shareListForm.get('email')?.value}/${this.data.id}`);
     this.isFeaching = true;
     this.shopListService.post(`${this.url}CheckList/ShareCheckList/${this.shareListForm.get('email')?.value}/${this.data.id}`, null)
     .subscribe(responseData => {
-      console.log(responseData.body);
       this.isFeaching = false; 
       this.dialog.closeAll();
      },

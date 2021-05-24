@@ -25,6 +25,8 @@ const routes: Routes = [
       {path: 'shared-lists', component: SharedListsComponent},
       {path: 'edit-list/:id', component: EditListComponent},
     ]},
+    {path: 'not-found', component: NotFoundComponent},
+    {path: '**', component: NotFoundComponent},
   ]},
   {path: 'not-found', component: NotFoundComponent},
   {path: '**', component: NotFoundComponent},

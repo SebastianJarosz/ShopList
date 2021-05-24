@@ -17,7 +17,6 @@ export class ListManagerComponent implements OnInit {
     const dialogRef = this.dialog.open(CreateListComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 }

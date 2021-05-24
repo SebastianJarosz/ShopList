@@ -1,31 +1,52 @@
-<mat-card [class.mat-elevation-z24]>
-    <p>{{listName}}</p>
-    <app-list-item 
-    *ngFor="let listPostion of listPostions; let i = index"
-    [listPostion]="listPostion"
-    ></app-list-item>
-    <p>{{creationDate}}</p>
-    <p>{{shopPrice}}</p>
-    <button 
-        mat-button color="accent" 
-        (click)="sendToOld()"
-        *ngIf="status === 0"
-        >Zakończ</button>
-    <button 
-        mat-button color="accent" 
-        (click)="sendToOld()"
-        *ngIf="status === 1"
-        >Przywróć</button>
-    <button 
-        mat-button color="accent" 
-        (click)="sendToOld()"
-        *ngIf="status === 2"
-        >Dodaj do moich list</button>
-    <button 
-        mat-button color="base" 
-        (click)="openDialog()"
-        *ngIf="status !== 2"
-        >Udostępnij</button>
-    <button mat-button color="warn" (click)="delete()">Usuń</button>
+<mat-card [class.mat-elevation-z12]>
+    <mat-card-header>
+        <mat-card-title-group>
+            <mat-card-title>
+                {{listName}}
+            </mat-card-title>
+            <mat-card-subtitle>
+               <p> Data utworzenia: {{creationDate | date: 'short'}}</p>
+            </mat-card-subtitle>
+        </mat-card-title-group>
+
+    </mat-card-header>
+    <mat-card-content>
+    <mat-card-subtitle>
+        Twoja lista zakupów:
+    </mat-card-subtitle>
+    <div class="div-scroll">
+        <app-list-item 
+        *ngFor="let listPostion of listPostions; let i = index"
+        [listPostion]="listPostion"
+        [productIndex]="i"
+        ></app-list-item>
+    </div>
+</mat-card-content>
+    <mat-card-footer>
+        <button 
+            mat-button color="primary" 
+            (click)="sendToOld()"
+            *ngIf="status === 0"
+            > <mat-icon>check</mat-icon>Zakończ</button>
+        <button 
+            mat-button color="primary" 
+            (click)="sendToOld()"
+            *ngIf="status === 1"
+            >	<mat-icon>reply</mat-icon>Przywróć</button>
+        <button 
+            mat-button color="primary" 
+            (click)="sendToOld()"
+            *ngIf="status === 2"
+            ><mat-icon>add</mat-icon>Dodaj do moich list</button>
+        <button 
+            mat-button color="base" 
+            (click)="openDialogShare()"
+            *ngIf="status !== 2"
+            ><mat-icon>share</mat-icon>Udostępnij</button>
+        <button 
+            mat-button color="warn" 
+            (click)="openDialogRemove()"
+            > <mat-icon>close</mat-icon>Usuń</button>
+    </mat-card-footer>
 </mat-card>
 

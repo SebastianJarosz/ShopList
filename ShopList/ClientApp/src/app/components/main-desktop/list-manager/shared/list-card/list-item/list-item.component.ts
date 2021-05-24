@@ -13,9 +13,10 @@ export class ListItemComponent implements OnInit {
   unit?: string;
 
   @Input() listPostion?: ListPostionModel;
-  
+  @Input() productIndex?: number | any;
   constructor() { }
   ngOnInit(): void {
+    this.productIndex = this.productIndex + 1;
     this.posName = this.listPostion?.posName;
     this.quantity = this.listPostion?.quantity;
     this.unit = this.listPostion?.unit;

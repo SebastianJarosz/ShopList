@@ -16,7 +16,6 @@ export class ShopListService {
   getAll(url: string){
   let tokenParse = localStorage.getItem('token');
   let token = `${tokenParse}`.replace( /"/g ,' ');
-  console.log(token);
   return this.httpClient.get<ShopListModel>(url, 
     { 
       observe:"body",

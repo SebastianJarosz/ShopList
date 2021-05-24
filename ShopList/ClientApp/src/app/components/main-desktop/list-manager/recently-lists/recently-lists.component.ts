@@ -10,11 +10,12 @@ import { UrlSettings } from 'src/app/shared/url-settings';
 })
 export class RecentlyListsComponent implements OnInit {
 
-  shopLists?: Array<ShopListModel>;
+  shopLists?: Array<ShopListModel> | any;
   shopList?: ShopListModel;
   isFeaching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
+  isNotEmpty?: boolean;
 
   constructor(private shopListService: ShopListService) { }
 
@@ -23,7 +24,7 @@ export class RecentlyListsComponent implements OnInit {
     this.shopListService.
       getAll(`${this.url}CheckList/AllCheckList/1`).subscribe(responseData  => {
         this.shopLists = responseData;
-        console.log(this.shopLists);
+        this.isNotEmpty = (this.shopLists.length > 0) ? true : false;
         this.isFeaching = false; 
         },
         error => {

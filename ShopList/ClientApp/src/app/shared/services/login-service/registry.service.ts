@@ -1,7 +1,7 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPostData } from '../../interface/IPostData';
-import { RegistryResponseModel } from '../../models/RegistryResponseModel';
+import { RegistryResponseModel } from '../../models/registry-response-model';
 
 
 @Injectable({

@@ -9,7 +9,6 @@ export class RegistryResponseModel{
         ;
     }
 
-
 }
 export class ErrorRegistry{
     code: string;

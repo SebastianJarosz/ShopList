@@ -2,8 +2,8 @@ import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginPostModel } from 'src/app/shared/models/LoginPostModel';
-import { LoginResponseModel } from 'src/app/shared/models/LoginResponseModel';
+import { LoginPostModel } from 'src/app/shared/models/login-post-model';
+import { LoginResponseModel } from 'src/app/shared/models/login-response-model';
 import { UserProfileModel } from 'src/app/shared/models/user-profile-model';
 import { SigninService } from 'src/app/shared/services/login-service/signin.service';
 import { UserProfileService } from 'src/app/shared/services/user-profile/user-profile.service';
@@ -39,13 +39,13 @@ export class SignInComponent implements OnInit {
                 this.signInForm.value.userName.toString(),
                 this.signInForm.value.password.toString());
 
-    this.rest.post(this.url.concat('Users/UserLogin'), login).subscribe(responseData => {
+    this.rest.post(`${this.url}Users/UserLogin`, login).subscribe(responseData => {
       responseData.body?.token;
       localStorage.setItem("token", JSON.stringify(responseData.body?.token));
       let user: any = responseData.body;
       this.userProfile.createUserProfile(user);
       sessionStorage.setItem("userData", JSON.stringify(this.userProfile.getUserProfile()));
-      this.router.navigate(['main-panel']);
+      this.router.navigate(['main-panel/list-manager/current-lists']);
       this.isFeaching = false; 
      },
       error => {
