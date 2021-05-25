@@ -26,7 +26,7 @@ export class ListCardComponent implements OnInit {
   shopPrice?: number;
   status?: number;
 
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
   navurl?: string | any;
@@ -73,7 +73,7 @@ export class ListCardComponent implements OnInit {
       this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
         this.router.navigate([this.navurl]);
     }); 
-      this.isFeaching = false;
+      this.isFetching = false;
      },
       error => {
           if(error.status == 403){
@@ -83,7 +83,7 @@ export class ListCardComponent implements OnInit {
             this.error = 'Błąd połączenia z serwerem';
             console.error(this.error);
           }
-          this.isFeaching = false; 
+          this.isFetching = false; 
         }
      );
   }

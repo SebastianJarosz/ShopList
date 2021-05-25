@@ -12,7 +12,7 @@ import { UrlSettings } from 'src/app/shared/url-settings';
 })
 export class RemoveListDialogComponent implements OnInit {
 
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
   currentRoute?: string;
@@ -25,12 +25,14 @@ export class RemoveListDialogComponent implements OnInit {
   ngOnInit(): void {
   }
   delete(){
-    this.shopListService.delete(`${this.url}CheckList/Delete/${this.data.id}`).subscribe(responseData => {
+    this.isFetching = true;
+    this.shopListService.delete(`${this.url}CheckList/Delete/${this.data.id}`)
+      .subscribe(responseData => {
       this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
         this.router.navigate(['/main-panel/list-manager/current-lists']);
         this.dialog.closeAll();
     }); 
-      this.isFeaching = false;
+      this.isFetching = false;
      },
       error => {
           if(error.status == 403){
@@ -40,7 +42,7 @@ export class RemoveListDialogComponent implements OnInit {
             this.error = 'Błąd połączenia z serwerem';
             console.error(this.error);
           }
-          this.isFeaching = false; 
+          this.isFetching = false; 
         }
      );
   }

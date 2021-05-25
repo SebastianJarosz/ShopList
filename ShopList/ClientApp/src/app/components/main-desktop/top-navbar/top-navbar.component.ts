@@ -14,7 +14,7 @@ import { UrlSettings } from 'src/app/shared/url-settings';
 export class TopNavbarComponent implements OnInit {
   headerDict = []
   url: string = new UrlSettings().baseUrl;
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   showFiller = false;
   innerWidth: any;

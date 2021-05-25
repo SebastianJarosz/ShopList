@@ -15,7 +15,7 @@ export class SignUpComponent implements OnInit {
 
   signUpForm: FormGroup= new FormGroup({});
   hide: boolean = true;
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   errorUserName: string='NoErrors';
   errorEmail: string='NoErrors';
@@ -41,7 +41,7 @@ export class SignUpComponent implements OnInit {
     this.errorPass = 'NoErrors';
   }
   onSubmit(){
-    this.isFeaching = true;
+    this.isFetching = true;
     let registryBody = new RegistryPostModel(
                 this.signUpForm.value.name.toString(),
                 this.signUpForm.value.surname.toString(),
@@ -75,7 +75,7 @@ export class SignUpComponent implements OnInit {
           }
         } 
       }
-      this.isFeaching = false; 
+      this.isFetching = false; 
      },
       error => {
           if(error.status == 500){
@@ -85,7 +85,7 @@ export class SignUpComponent implements OnInit {
               console.log(element.message)
             });
           }
-          this.isFeaching = false; 
+          this.isFetching = false; 
         }
      );
   }

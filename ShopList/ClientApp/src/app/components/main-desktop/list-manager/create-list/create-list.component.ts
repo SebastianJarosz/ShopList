@@ -13,7 +13,7 @@ import { UrlSettings } from 'src/app/shared/url-settings';
 export class CreateListComponent implements OnInit {
   createShopListForm: FormGroup = new FormGroup({});
   shopPostions = new FormArray([]);
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
   
@@ -37,7 +37,7 @@ export class CreateListComponent implements OnInit {
     this.shopPostions.removeAt(pos);
   }
   onSubmit(): void{
-    this.isFeaching = true;
+    this.isFetching = true;
     const createShopListModel = {
       'listName': this.createShopListForm.get('listName')?.value,
       'listPostion': JSON.stringify(this.createShopListForm.get('shopPostions')?.value)
@@ -47,7 +47,7 @@ export class CreateListComponent implements OnInit {
       this.router.navigateByUrl('/RefreshComponent', { skipLocationChange: true }).then(() => {
         this.router.navigate(['main-panel/list-manager/current-lists']);
     }); 
-      this.isFeaching = false; 
+      this.isFetching = false; 
       this.dialog.closeAll();
      },
       error => {
@@ -58,7 +58,7 @@ export class CreateListComponent implements OnInit {
             this.error = 'Błąd połączenia z serwerem';
             console.error(this.error);
           }
-          this.isFeaching = false; 
+          this.isFetching = false; 
         }
      );
   }

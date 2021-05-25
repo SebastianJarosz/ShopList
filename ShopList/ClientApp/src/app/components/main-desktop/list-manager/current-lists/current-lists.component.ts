@@ -12,7 +12,7 @@ export class CurrentListsComponent implements OnInit {
 
   shopLists?: Array<ShopListModel> | any;
   shopList?: ShopListModel;
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
   isNotEmpty?: boolean;
@@ -20,12 +20,12 @@ export class CurrentListsComponent implements OnInit {
   constructor(private shopListService: ShopListService) { }
 
   ngOnInit(): void {
-    this.isFeaching=true
-    this.shopListService.
-      getAll(`${this.url}CheckList/AllCheckList/0`).subscribe(responseData  => {
+    this.isFetching = true;
+    this.shopListService.getAll(`${this.url}CheckList/AllCheckList/0`)
+      .subscribe(responseData  => {
         this.shopLists = responseData;
         this.isNotEmpty = (this.shopLists.length > 0) ? true : false;
-        this.isFeaching = false; 
+        this.isFetching = false; 
         },
         error => {
             if(error.status == 403){
@@ -35,9 +35,28 @@ export class CurrentListsComponent implements OnInit {
               this.error = 'Błąd połączenia z serwerem';
               console.error('Błąd połaczeniaz serwerem');
             }
-            this.isFeaching = false; 
+            this.isFetching = false; 
           }
         );
+
+  // this.isFetching=true
+  // this.shopListService.
+  // getMock().subscribe(responseData  => {
+  //   this.shopLists = responseData;
+  //   this.isNotEmpty = (this.shopLists.length > 0) ? true : false;
+  //   this.isFetching = false; 
+  //   },
+  //   error => {
+  //       if(error.status == 403){
+  //         this.error = 'Odmowa dostępu';
+  //         console.error('Odmowa dostępu');
+  //       }else if(error.status == 500){
+  //         this.error = 'Błąd połączenia z serwerem';
+  //         console.error('Błąd połaczeniaz serwerem');
+  //       }
+  //       this.isFetching = false; 
+  //     }
+  //   );
   }
 
    

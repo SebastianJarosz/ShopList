@@ -22,6 +22,6 @@
     <button mat-raised-button color="primary" [disabled]="signInForm.invalid">Zaloguj się</button>
   </div>
 </form>
-<section *ngIf="isFeaching">
+<section *ngIf="isFetching">
   <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 </section>

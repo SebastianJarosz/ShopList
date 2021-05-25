@@ -18,7 +18,7 @@ export class SignInComponent implements OnInit {
   
   signInForm: FormGroup = new FormGroup({});
   hide: boolean = true;
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
 
@@ -34,19 +34,19 @@ export class SignInComponent implements OnInit {
   }
 
   onSubmit(){
-    this.isFeaching = true;
-    let login = new LoginPostModel(
+    this.isFetching = true;
+    const login = new LoginPostModel(
                 this.signInForm.value.userName.toString(),
                 this.signInForm.value.password.toString());
 
     this.rest.post(`${this.url}Users/UserLogin`, login).subscribe(responseData => {
       responseData.body?.token;
       localStorage.setItem("token", JSON.stringify(responseData.body?.token));
-      let user: any = responseData.body;
+      const user: any = responseData.body;
       this.userProfile.createUserProfile(user);
       sessionStorage.setItem("userData", JSON.stringify(this.userProfile.getUserProfile()));
       this.router.navigate(['main-panel/list-manager/current-lists']);
-      this.isFeaching = false; 
+      this.isFetching = false; 
      },
       error => {
           if(error.status == 403){
@@ -56,7 +56,7 @@ export class SignInComponent implements OnInit {
             this.error = 'Błąd połączenia z serwerem';
             console.error('Błąd połączenia z serwerem');
           }
-          this.isFeaching = false; 
+          this.isFetching = false; 
         }
      );
   }

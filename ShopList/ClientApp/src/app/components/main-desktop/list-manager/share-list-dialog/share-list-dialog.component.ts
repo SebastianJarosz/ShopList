@@ -12,7 +12,7 @@ import { UrlSettings } from 'src/app/shared/url-settings';
 })
 export class ShareListDialogComponent implements OnInit {
 
-  isFeaching: boolean = false;
+  isFetching: boolean = false;
   error: string='NoErrors';
   url: string = new UrlSettings().baseUrl;
   shareListForm: FormGroup = new FormGroup({
@@ -28,10 +28,10 @@ export class ShareListDialogComponent implements OnInit {
   }
 
   onSubmit(){
-    this.isFeaching = true;
+    this.isFetching = true;
     this.shopListService.post(`${this.url}CheckList/ShareCheckList/${this.shareListForm.get('email')?.value}/${this.data.id}`, null)
     .subscribe(responseData => {
-      this.isFeaching = false; 
+      this.isFetching = false; 
       this.dialog.closeAll();
      },
       error => {
@@ -42,7 +42,7 @@ export class ShareListDialogComponent implements OnInit {
             this.error = 'Błąd połączenia z serwerem';
             console.error(this.error);
           }
-          this.isFeaching = false; 
+          this.isFetching = false; 
         }
      );
   }
